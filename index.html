@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kivu Travel | Trips across the Great Lakes region</title>
-<meta name="description" content="Kivu Travel is rebuilding its website. Reach us by WhatsApp or email to plan your trip to Rwanda, Burundi, Uganda and Congo.">
+<title id="ttl">Kivu Travel | Trips across the Great Lakes region</title>
+<meta name="description" id="md" content="Kivu Travel is rebuilding its website. Reach us by WhatsApp or email to plan your trip to Rwanda, Burundi, Uganda and Congo.">
 <meta property="og:title" content="Kivu Travel">
-<meta property="og:description" content="Plan your trip to Rwanda, Burundi, Uganda and Congo. Message us on WhatsApp or email.">
+<meta property="og:description" id="od" content="Plan your trip to Rwanda, Burundi, Uganda and Congo. Message us on WhatsApp or email.">
 <meta property="og:image" content="logo.png">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,6 +71,11 @@ header img{height:64px;width:auto;display:block;mix-blend-mode:multiply}
 footer{padding:1.6rem 0;font-size:.95rem;background:var(--navy);color:#b9ccd6;border-top:1px solid rgba(255,255,255,.15)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem}
 
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.lang{display:flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden;flex:none}
+.lang button{font:600 .95rem var(--body);background:transparent;color:var(--navy);border:0;padding:.45rem .9rem;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.lang button:focus-visible{outline-offset:-3px}
 @media (max-width:980px){.countries{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:760px){.contact .grid{grid-template-columns:1fr;gap:2rem}}
 @media (max-width:560px){.countries{grid-template-columns:1fr}.btn{width:100%;justify-content:center}header img{height:52px}}
@@ -80,28 +85,35 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 <body>
 
 <header>
-  <div class="wrap"><a href="/" aria-label="Kivu Travel home"><img src="logo.png" alt="Kivu Travel"></a></div>
+  <div class="wrap bar">
+    <a href="./" aria-label="Kivu Travel home" data-i18n-aria="aLogo"><img src="logo.png" alt="Kivu Travel"></a>
+    <div class="lang" role="group" aria-label="Language" data-i18n-aria="lang">
+      <button type="button" data-l="en" lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-l="fr" lang="fr" aria-pressed="false">FR</button>
+      <button type="button" data-l="nl" lang="nl" aria-pressed="false">NL</button>
+    </div>
+  </div>
 </header>
 
 <main>
 <section class="hero">
   <div class="wrap">
-    <h1>Your trip to the Great Lakes starts with a message.</h1>
-    <p class="lead">We are building our new website. Until it is ready, write to us directly on WhatsApp or by email for any trip across Rwanda, Burundi, Uganda and Congo.</p>
+    <h1 data-i18n="h1">Your trip to the Great Lakes starts with a message.</h1>
+    <p class="lead" data-i18n="lead">We are building our new website. Until it is ready, write to us directly on WhatsApp or by email for any trip across Rwanda, Burundi, Uganda and Congo.</p>
     <div class="actions">
-      <a class="btn wa" href="https://wa.me/32494522871?text=Hello%20Kivu%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip." target="_blank" rel="noopener">
+      <a class="btn wa" data-wa href="https://wa.me/32494522871" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.1.5.1.6-.1l.9-1.100c.2-.3.4-.2.6-.1l1.900.9c.3.1.5.2.5.3.1.2.1.8-.1 1.300Z"/></svg>
-        Message us on WhatsApp
+        <span data-i18n="wa">Message us on WhatsApp</span>
       </a>
-      <a class="btn mail" href="mailto:info@kivutravel.com?subject=Trip%20enquiry">
+      <a class="btn mail" data-mail href="mailto:info@kivutravel.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        Send us an email
+        <span data-i18n="mail">Send us an email</span>
       </a>
     </div>
   </div>
 
   <!-- Lake Kivu landscape -->
-  <svg class="land" viewBox="0 0 1200 280" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Green hills above a lake at sunrise">
+  <svg class="land" viewBox="0 0 1200 280" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Green hills above a lake at sunrise" data-i18n-aria="aHero">
     <circle class="sun" cx="880" cy="54" r="40" fill="#f0a43a"/>
     <path d="M0 175 C120 95 240 150 360 112 C500 66 600 150 740 118 C880 86 1030 140 1200 96 V280 H0Z" fill="#a3c644" opacity=".75"/>
     <path d="M0 150 C90 120 170 140 260 128 C330 118 380 150 470 160 V280 H0Z" fill="#4da34f"/>
@@ -116,14 +128,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 
 <section class="region" id="region">
   <div class="wrap">
-    <h2>Four countries around the same lakes</h2>
-    <p class="intro">Volcanoes, terraced hills, long lake shores and rainforest. Tell us what draws you in and we will help you shape the route.</p>
+    <h2 data-i18n="h2a">Four countries around the same lakes</h2>
+    <p class="intro" data-i18n="intro">Volcanoes, terraced hills, long lake shores and rainforest. Tell us what draws you in and we will help you shape the route.</p>
   </div>
   <div class="wrap">
     <div class="countries">
 
       <article class="country">
-        <svg viewBox="0 0 300 240" role="img" aria-label="Terraced green hills under a sun">
+        <svg viewBox="0 0 300 240" role="img" aria-label="Terraced green hills under a sun" data-i18n-aria="aRw">
           <rect width="300" height="240" fill="#dfeccb"/>
           <circle cx="230" cy="62" r="26" fill="#f0a43a"/>
           <path d="M0 150 C50 100 100 130 150 105 C200 80 250 120 300 100 V240 H0Z" fill="#a3c644"/>
@@ -134,11 +146,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
             <path d="M120 160 C160 150 200 162 250 152"/>
           </g>
         </svg>
-        <div class="txt"><h3>Rwanda</h3><p>Land of a thousand hills, with terraced slopes, volcano treks and the Kivu lakeshore.</p></div>
+        <div class="txt"><h3>Rwanda</h3><p data-i18n="rw">Land of a thousand hills, with terraced slopes, volcano treks and the Kivu lakeshore.</p></div>
       </article>
 
       <article class="country">
-        <svg viewBox="0 0 300 240" role="img" aria-label="A traditional drum on the shore of a lake at sunset">
+        <svg viewBox="0 0 300 240" role="img" aria-label="A traditional drum on the shore of a lake at sunset" data-i18n-aria="aBu">
           <rect width="300" height="240" fill="#f7e1bd"/>
           <circle cx="150" cy="150" r="62" fill="#f0a43a"/>
           <rect y="150" width="300" height="90" fill="#2f6f86"/>
@@ -151,11 +163,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
           <ellipse cx="150" cy="118" rx="34" ry="8" fill="#f3d9a8"/>
           <path d="M122 126 L134 198 M138 128 L146 200 M154 128 L158 200 M170 126 L162 198 M180 124 L170 196" stroke="#f3d9a8" stroke-width="2" fill="none"/>
         </svg>
-        <div class="txt"><h3>Burundi</h3><p>Lake Tanganyika sunsets, the beat of the royal drums and beaches few travellers know.</p></div>
+        <div class="txt"><h3>Burundi</h3><p data-i18n="bu">Lake Tanganyika sunsets, the beat of the royal drums and beaches few travellers know.</p></div>
       </article>
 
       <article class="country">
-        <svg viewBox="0 0 300 240" role="img" aria-label="A crested crane standing on green ground">
+        <svg viewBox="0 0 300 240" role="img" aria-label="A crested crane standing on green ground" data-i18n-aria="aUg">
           <rect width="300" height="240" fill="#d4e6ec"/>
           <circle cx="60" cy="62" r="22" fill="#f0a43a"/>
           <path d="M0 210 C100 195 200 215 300 200 V240H0Z" fill="#4da34f"/>
@@ -169,11 +181,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
           <path d="M170 58 L158 40 M174 56 L170 34 M178 57 L184 36 M181 61 L194 45" stroke="#f0a43a" stroke-width="3" stroke-linecap="round"/>
           <path d="M140 174 L138 206 M156 176 L158 206" stroke="#17394d" stroke-width="4" stroke-linecap="round"/>
         </svg>
-        <div class="txt"><h3>Uganda</h3><p>Crested cranes, forest trails and the country where the Nile begins.</p></div>
+        <div class="txt"><h3 data-i18n="ugn">Uganda</h3><p data-i18n="ug">Crested cranes, forest trails and the country where the Nile begins.</p></div>
       </article>
 
       <article class="country">
-        <svg viewBox="0 0 300 240" role="img" aria-label="A smoking volcano glowing over rainforest at night">
+        <svg viewBox="0 0 300 240" role="img" aria-label="A smoking volcano glowing over rainforest at night" data-i18n-aria="aCg">
           <rect width="300" height="240" fill="#17394d"/>
           <g fill="#cfe3ea"><circle cx="40" cy="40" r="2"/><circle cx="90" cy="70" r="1.5"/><circle cx="250" cy="50" r="2"/><circle cx="270" cy="110" r="1.5"/><circle cx="30" cy="120" r="1.5"/></g>
           <g fill="#3b5668" opacity=".85"><circle cx="146" cy="72" r="12"/><circle cx="158" cy="54" r="16"/><circle cx="178" cy="36" r="18"/></g>
@@ -183,7 +195,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
           <path d="M0 240 V204 q15 -24 30 0 q15 -28 30 0 q15 -24 30 0 q15 -28 30 0 q15 -24 30 0 q15 -28 30 0 q15 -24 30 0 q15 -28 30 0 q15 -24 30 0 q15 -28 30 0 V240Z" fill="#2f7d3f"/>
           <path d="M0 240 V222 q15 -18 30 0 q15 -20 30 0 q15 -18 30 0 q15 -20 30 0 q15 -18 30 0 q15 -20 30 0 q15 -18 30 0 q15 -20 30 0 q15 -18 30 0 q15 -20 30 0 V240Z" fill="#4da34f"/>
         </svg>
-        <div class="txt"><h3>Congo</h3><p>Virunga's glowing volcanoes, deep rainforest and the western shore of Lake Kivu.</p></div>
+        <div class="txt"><h3>Congo</h3><p data-i18n="cg">Virunga's glowing volcanoes, deep rainforest and the western shore of Lake Kivu.</p></div>
       </article>
 
     </div>
@@ -193,16 +205,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 <section class="contact" id="contact">
   <div class="wrap grid">
     <div>
-      <h2>Tell us where you want to go</h2>
-      <p>Send us a message and we will take it from there. It helps if you tell us which countries you are thinking of, roughly when, and how many people are travelling.</p>
-      <p>You will reach us for every trip to the Great Lakes region.</p>
+      <h2 data-i18n="h2b">Tell us where you want to go</h2>
+      <p data-i18n="c1">Send us a message and we will take it from there. It helps if you tell us which countries you are thinking of, roughly when, and how many people are travelling.</p>
+      <p data-i18n="c2">You will reach us for every trip to the Great Lakes region.</p>
     </div>
     <div class="channels">
-      <a class="channel w" href="https://wa.me/32494522871?text=Hello%20Kivu%20Travel%2C%20I%27d%20like%20to%20plan%20a%20trip." target="_blank" rel="noopener">
+      <a class="channel w" data-wa href="https://wa.me/32494522871" target="_blank" rel="noopener">
         <small>WhatsApp</small><strong>+32 494 52 28 71</strong>
       </a>
-      <a class="channel" href="mailto:info@kivutravel.com?subject=Trip%20enquiry">
-        <small>Email</small><strong>info@kivutravel.com</strong>
+      <a class="channel" data-mail href="mailto:info@kivutravel.com">
+        <small data-i18n="el">Email</small><strong>info@kivutravel.com</strong>
       </a>
     </div>
   </div>
@@ -210,8 +222,79 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 </main>
 
 <footer>
-  <div class="wrap"><span>&copy; 2026 Kivu Travel</span><span>Our new website is coming soon.</span></div>
+  <div class="wrap"><span>&copy; 2026 Kivu Travel</span><span data-i18n="foot">Our new website is coming soon.</span></div>
 </footer>
 
+<script>
+(function(){
+var T={
+en:{t:"Kivu Travel | Trips across the Great Lakes region",d:"Kivu Travel is rebuilding its website. Reach us by WhatsApp or email to plan your trip to Rwanda, Burundi, Uganda and Congo.",
+h1:"Your trip to the Great Lakes starts with a message.",lead:"We are building our new website. Until it is ready, write to us directly on WhatsApp or by email for any trip across Rwanda, Burundi, Uganda and Congo.",
+wa:"Message us on WhatsApp",mail:"Send us an email",h2a:"Four countries around the same lakes",
+intro:"Volcanoes, terraced hills, long lake shores and rainforest. Tell us what draws you in and we will help you shape the route.",
+rw:"Land of a thousand hills, with terraced slopes, volcano treks and the Kivu lakeshore.",
+bu:"Lake Tanganyika sunsets, the beat of the royal drums and beaches few travellers know.",
+ugn:"Uganda",ug:"Crested cranes, forest trails and the country where the Nile begins.",
+cg:"Virunga's glowing volcanoes, deep rainforest and the western shore of Lake Kivu.",
+h2b:"Tell us where you want to go",
+c1:"Send us a message and we will take it from there. It helps if you tell us which countries you are thinking of, roughly when, and how many people are travelling.",
+c2:"You will reach us for every trip to the Great Lakes region.",el:"Email",foot:"Our new website is coming soon.",
+waMsg:"Hello Kivu Travel, I'd like to plan a trip.",sub:"Trip enquiry",lang:"Language",aLogo:"Kivu Travel home",
+aHero:"Green hills above a lake at sunrise",aRw:"Terraced green hills under a sun",aBu:"A traditional drum on the shore of a lake at sunset",aUg:"A crested crane standing on green ground",aCg:"A smoking volcano glowing over rainforest at night"},
+fr:{t:"Kivu Travel | Voyages dans la région des Grands Lacs",d:"Kivu Travel reconstruit son site. Contactez-nous par WhatsApp ou e-mail pour organiser votre voyage au Rwanda, au Burundi, en Ouganda et au Congo.",
+h1:"Votre voyage dans la région des Grands Lacs commence par un message.",lead:"Notre nouveau site est en construction. En attendant, écrivez-nous directement sur WhatsApp ou par e-mail pour tout voyage au Rwanda, au Burundi, en Ouganda et au Congo.",
+wa:"Écrivez-nous sur WhatsApp",mail:"Envoyez-nous un e-mail",h2a:"Quatre pays autour des mêmes lacs",
+intro:"Volcans, collines en terrasses, longues rives et forêt tropicale. Dites-nous ce qui vous attire et nous vous aiderons à construire votre itinéraire.",
+rw:"Le pays des mille collines : pentes en terrasses, randonnées vers les volcans et rives du lac Kivu.",
+bu:"Couchers de soleil sur le lac Tanganyika, tambours royaux et plages que peu de voyageurs connaissent.",
+ugn:"Ouganda",ug:"Grues couronnées, sentiers forestiers et le pays où naît le Nil.",
+cg:"Les volcans incandescents des Virunga, la forêt profonde et la rive ouest du lac Kivu.",
+h2b:"Dites-nous où vous voulez aller",
+c1:"Envoyez-nous un message et nous nous occupons du reste. Il est utile de nous indiquer les pays envisagés, la période approximative et le nombre de voyageurs.",
+c2:"Vous pouvez nous joindre pour tous vos voyages dans la région des Grands Lacs.",el:"E-mail",foot:"Notre nouveau site arrive bientôt.",
+waMsg:"Bonjour Kivu Travel, j'aimerais organiser un voyage.",sub:"Demande de voyage",lang:"Langue",aLogo:"Kivu Travel, accueil",
+aHero:"Collines vertes au-dessus d'un lac au lever du soleil",aRw:"Collines vertes en terrasses sous le soleil",aBu:"Un tambour traditionnel au bord d'un lac au coucher du soleil",aUg:"Une grue couronnée debout sur l'herbe",aCg:"Un volcan fumant qui rougeoie au-dessus de la forêt, de nuit"},
+nl:{t:"Kivu Travel | Reizen in het Grote Merengebied",d:"Kivu Travel bouwt een nieuwe website. Neem contact op via WhatsApp of e-mail om uw reis naar Rwanda, Burundi, Oeganda en Congo te plannen.",
+h1:"Uw reis naar het Grote Merengebied begint met een bericht.",lead:"We bouwen aan onze nieuwe website. Tot die klaar is, kunt u ons rechtstreeks bereiken via WhatsApp of e-mail voor elke reis naar Rwanda, Burundi, Oeganda en Congo.",
+wa:"Stuur ons een WhatsApp-bericht",mail:"Stuur ons een e-mail",h2a:"Vier landen rond dezelfde meren",
+intro:"Vulkanen, heuvels met terrassen, lange meeroevers en regenwoud. Vertel ons wat u aanspreekt en we helpen u de route samen te stellen.",
+rw:"Het land van duizend heuvels, met terrashellingen, vulkaantochten en de oevers van het Kivumeer.",
+bu:"Zonsondergangen aan het Tanganyikameer, koninklijke trommels en stranden die weinig reizigers kennen.",
+ugn:"Oeganda",ug:"Kroonkraanvogels, boswandelingen en het land waar de Nijl ontspringt.",
+cg:"De gloeiende vulkanen van Virunga, diep regenwoud en de westelijke oever van het Kivumeer.",
+h2b:"Vertel ons waar u heen wilt",
+c1:"Stuur ons een bericht en wij doen de rest. Het helpt als u laat weten aan welke landen u denkt, ongeveer wanneer, en met hoeveel mensen u reist.",
+c2:"U kunt ons bereiken voor elke reis naar het Grote Merengebied.",el:"E-mail",foot:"Onze nieuwe website komt binnenkort.",
+waMsg:"Hallo Kivu Travel, ik wil graag een reis plannen.",sub:"Reisaanvraag",lang:"Taal",aLogo:"Kivu Travel, startpagina",
+aHero:"Groene heuvels boven een meer bij zonsopgang",aRw:"Groene heuvels met terrassen onder de zon",aBu:"Een traditionele trom aan de oever van een meer bij zonsondergang",aUg:"Een kroonkraanvogel op groen gras",aCg:"Een rokende vulkaan die 's nachts gloeit boven het regenwoud"}
+};
+function pick(){
+  try{var s=localStorage.getItem("kt-lang");if(T[s])return s}catch(e){}
+  var l=navigator.languages||[navigator.language||"en"];
+  for(var i=0;i<l.length;i++){var c=String(l[i]).slice(0,2).toLowerCase();if(T[c])return c}
+  return "en";
+}
+function apply(c){
+  var d=T[c],q=function(x){return document.querySelectorAll(x)};
+  document.documentElement.lang=c;
+  document.title=d.t;
+  document.getElementById("md").content=d.d;
+  document.getElementById("od").content=d.d;
+  q("[data-i18n]").forEach(function(e){e.textContent=d[e.getAttribute("data-i18n")]});
+  q("[data-i18n-aria]").forEach(function(e){e.setAttribute("aria-label",d[e.getAttribute("data-i18n-aria")])});
+  q("[data-wa]").forEach(function(e){e.href="https://wa.me/32494522871?text="+encodeURIComponent(d.waMsg)});
+  q("[data-mail]").forEach(function(e){e.href="mailto:info@kivutravel.com?subject="+encodeURIComponent(d.sub)});
+  q(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-l")===c?"true":"false")});
+}
+document.querySelectorAll(".lang button").forEach(function(b){
+  b.addEventListener("click",function(){
+    var c=b.getAttribute("data-l");
+    try{localStorage.setItem("kt-lang",c)}catch(e){}
+    apply(c);
+  });
+});
+apply(pick());
+})();
+</script>
 </body>
 </html>
